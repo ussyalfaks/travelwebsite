@@ -5,8 +5,9 @@ function Hero() {
   return (
     <>
       <div className="flex flex-col md:flex-row items-center justify-between p-4 md:p-16 bg-transparent">
-  <div className="  ">
-    <h1 className="text-4xl md:text-5xl mb-4 lg:leading-relaxed ">Discover and <br /> Enjoy Exceptional <br /> Adventures</h1>
+  <div className=" mb-20 ">
+    <h1 className="text-4xl md:text-5xl mb-4 lg:leading-relaxed font-semibold ">Discover and <br /> Enjoy Exceptional <br /> 
+    <span className='text-red-500'>Adventures</span> </h1>
     <p className="text-lg mb-8 capitalize">Discover Amazing Destinations and <br /> Create Unforgettable Memories</p>
     <div className="flex space-x-4">
       <button className=" py-1 px-4 bg-[#4475F2] text-white btn-outline font-normal rounded-md ">Start Your Journey</button>
