@@ -12,3 +12,12 @@
  .overflow-hidden {
   overflow: hidden;
 }
+
+.navbarhero-container {
+  background-image: url('./assets/Worldmap.png');
+  background-size: cover;
+  background-position: center;
+}
+/* .navbarhero-container{
+width: 100%;
+  height: 100vh;} */
