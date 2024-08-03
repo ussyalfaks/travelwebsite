@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
-
+  const location = useLocation();
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 768) {
@@ -20,15 +19,11 @@ const Navbar = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
-  // UseEffect to close the menu on location change
+// UseEffect to close the menu on location change
+useEffect(() => {
+  setMenuOpen(false);
+}, [location]);
   useEffect(() => {
-    setMenuOpen(false);
-  },);
-
-  // UseEffect to handle scroll and history changes
-  useEffect(() => {
-    // Disable scroll when menu is open
     if (menuOpen) {
       document.body.classList.add('overflow-hidden');
     } else {
@@ -38,44 +33,53 @@ const Navbar = () => {
       document.body.classList.remove('overflow-hidden');
     };
   }, [menuOpen]);
-  
+
   return (
-    <header className={` flex justify-between items-center  ${menuOpen ? 'h-screen max-md:flex max-md:items-start bg-slate-400' : ''} `}>
-      <nav className={`flex justify-between w-full h-full  px-10 pt-8 pb-3 mb-0 ${menuOpen? 'flex flex-col h-full ':''}`}>
-        <div className={`mb-4 md:mb-0 flex justify-start  ${menuOpen ? 'md:text-center text-white' : ''}`}>
-          <Link to="/" className="Logo font-mono">
-            DEVELOPEDBYUSMAN
-          </Link>
-        </div>
-        <div className={`md:flex md:items-center items-center ${menuOpen ? 'h-screen flex justify-center items-center' : ''}`}>
-          <ul className={`flex ${menuOpen ? 'flex flex-col items-center justify-center ' : 'max-md:hidden'} `}>
-            <li className="md:mx-4 my-2 md:my-0">
-              <NavLink to="/" 
-              // className='hidden'
-              >Home</NavLink>
-            </li>
-            {/* <li className="md:mx-4 my-2 md:my-0">
-              <NavLink to="/about">About</NavLink>
-            </li>
-            <li className="md:mx-4 my-2 md:my-0">
-              <NavLink to="/contact">Collection</NavLink>
-            </li> */}
-            <li className="">
-              <NavLink to="#"
-               className=" bg-[#437D9D] p-3 rounded-2xl hover:border-blue-700 hover:border-2 text-white">
-                Sign up
-                </NavLink>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <div className={` ${menuOpen? 'p-7 px-4' :'md:hidden px-4'}`}>
+    <header className={`flex flex-col md:flex-row justify-between items-center p-4 ${menuOpen ? 'h-screen bg-slate-400' : ''}`}>
+      <div className="flex justify-between items-center w-full md:w-auto">
+        <Link to="/" className="Logo text-green-300 font-mono text-xl">
+          Travel
+        </Link>
+        <div className="md:hidden">
           <FontAwesomeIcon
             icon={faBars}
             onClick={() => setMenuOpen(!menuOpen)}
-            className="text-2xl cursor-pointer "
+            className="text-2xl cursor-pointer"
           />
         </div>
+      </div>
+      <nav className={`flex-1 flex items-center justify-center ${menuOpen ? 'flex-col ' : 'hidden md:flex'}`}>
+        <ul className={`flex ${menuOpen ? 'flex-col items-center -mb-40' : 'space-x-4'}`}>
+          <li className="my-2 md:my-0">
+            <NavLink to="/" className="hover:underline">
+              Home
+            </NavLink>
+          </li>
+          <li className="my-2 md:my-0">
+            <NavLink to="/about" className="hover:underline">
+              About
+            </NavLink>
+          </li>
+          <li className="my-2 md:my-0">
+            <NavLink to="/pricing" className="hover:underline">
+              Pricing
+            </NavLink>
+          </li>
+          <li className="my-2 md:my-0">
+            <NavLink to="/contact" className="hover:underline">
+              Contact
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+      <div className={`${menuOpen ? 'flex items-center mb-40 ' : 'hidden md:flex'}`}>
+        <NavLink
+          to="#"
+          className="bg-[#437D9D] p-3 rounded-2xl hover:border-blue-700 hover:border-2 text-white"
+        >
+          Sign Up
+        </NavLink>
+      </div>
     </header>
   );
 };

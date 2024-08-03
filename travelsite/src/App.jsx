@@ -1,20 +1,23 @@
-import React from 'react'
-import { Route, Routes } from "react-router-dom";
-import "./App.css";
-import "./index.css";
-import Navbar from "./components/Navbar"
-import Home from "./components/pages/home";
-
+// index.jsx or App.jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/navbar';
+import Home from './components/pages/home';
 
 function App() {
   return (
-    <div className="App ">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </div>
+    <Router>
+      <div>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
+
+
 
 export default App;
