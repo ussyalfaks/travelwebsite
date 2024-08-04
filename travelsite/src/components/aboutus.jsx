@@ -6,7 +6,7 @@ function aboutus() {
     
     <div>
         <h1>Why We Are The Best</h1>
-        <p></p>
+        <p>Unmatched travel website designs for seamless exploration</p>
     </div>
     </>
   )
