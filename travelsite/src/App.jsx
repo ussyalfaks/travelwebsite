@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar';
 import Home from './components/pages/home';
 import Hero from './components/hero';
+import Aboutus from './components/aboutus';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
        <Navbar />
        <Hero/>
        </div>
+       <Aboutus/>
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
