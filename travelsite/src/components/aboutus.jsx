@@ -1,6 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import "../index.css"
 
 function aboutus() {
   return (
@@ -10,7 +11,7 @@ function aboutus() {
         <h1 className='font-semibold text-4xl my-2 text-center max-md:text-3xl'>Why We Are The Best</h1>
         <p className='text-center'>Unmatched travel website designs for seamless <br /> exploration</p>
 
-        <div className='flex justify-center max-md:flex-col items-center'>
+        <div className='travelabout flex justify-center max-md:flex-col items-center'>
         <div className='flex flex-col mr-10 mt-16 mb-5 max-md:my-5 max-md:mx-auto justify-center items-center'>
           <span> <FontAwesomeIcon
             icon={faBars}/></span>

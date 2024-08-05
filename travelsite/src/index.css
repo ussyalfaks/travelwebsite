@@ -18,6 +18,16 @@
   background-size: cover;
   background-position: center;
 }
-/* .navbarhero-container{
+
+.travelabout {
+  background-image: url('./assets/TRAVEL.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+ /* .travelabout{
 width: 100%;
   height: 100vh;} */
+
+
+
